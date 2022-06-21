@@ -1,0 +1,59 @@
+Declare @RandString varchar(8)
+--the random alpha numeric can start with any alpha numeric specified here
+-- e.g. Set @RandString = 'BOB'
+Set @RandString = ''
+
+Declare @Counter as int
+--startng value of the counter is always length + 1
+Set @Counter = LEN(@RandString)+1
+
+--specify how long you want your random alpha numeric to be
+While @Counter <= 8
+
+Begin
+Set @RandString += (
+SELECT
+	Case
+		When Cast(RAND()*(35-1)+1 as int) = 1 Then 'A'
+		When Cast(RAND()*(35-1)+1 as int) = 2 Then 'B'
+		When Cast(RAND()*(35-1)+1 as int) = 3 Then 'C'
+		When Cast(RAND()*(35-1)+1 as int) = 4 Then 'D'
+		When Cast(RAND()*(35-1)+1 as int) = 5 Then 'E'
+		When Cast(RAND()*(35-1)+1 as int) = 6 Then 'F'
+		When Cast(RAND()*(35-1)+1 as int) = 7 Then 'G'
+		When Cast(RAND()*(35-1)+1 as int) = 8 Then 'H'
+		When Cast(RAND()*(35-1)+1 as int) = 9 Then 'I'
+		When Cast(RAND()*(35-1)+1 as int) = 10 Then 'J'
+		When Cast(RAND()*(35-1)+1 as int) = 11 Then 'K'
+		When Cast(RAND()*(35-1)+1 as int) = 12 Then 'L'
+		When Cast(RAND()*(35-1)+1 as int) = 13 Then 'M'
+		When Cast(RAND()*(35-1)+1 as int) = 14 Then 'N'
+		When Cast(RAND()*(35-1)+1 as int) = 15 Then 'O'
+		When Cast(RAND()*(35-1)+1 as int) = 16 Then 'P'
+		When Cast(RAND()*(35-1)+1 as int) = 17 Then 'Q'
+		When Cast(RAND()*(35-1)+1 as int) = 18 Then 'R'
+		When Cast(RAND()*(35-1)+1 as int) = 19 Then 'S'
+		When Cast(RAND()*(35-1)+1 as int) = 20 Then 'T'
+		When Cast(RAND()*(35-1)+1 as int) = 21 Then 'U'
+		When Cast(RAND()*(35-1)+1 as int) = 22 Then 'V'
+		When Cast(RAND()*(35-1)+1 as int) = 23 Then 'W'
+		When Cast(RAND()*(35-1)+1 as int) = 24 Then 'X'
+		When Cast(RAND()*(35-1)+1 as int) = 25 Then 'Y'
+		When Cast(RAND()*(35-1)+1 as int) = 26 Then 'Z'
+		When Cast(RAND()*(35-1)+1 as int) = 27 Then '0'
+		When Cast(RAND()*(35-1)+1 as int) = 28 Then '1'
+		When Cast(RAND()*(35-1)+1 as int) = 29 Then '2'
+		When Cast(RAND()*(35-1)+1 as int) = 30 Then '3'
+		When Cast(RAND()*(35-1)+1 as int) = 31 Then '4'
+		When Cast(RAND()*(35-1)+1 as int) = 32 Then '5'
+		When Cast(RAND()*(35-1)+1 as int) = 33 Then '6'
+		When Cast(RAND()*(35-1)+1 as int) = 34 Then '7'
+		When Cast(RAND()*(35-1)+1 as int) = 35 Then '8'
+		Else '9'
+	End
+)
+
+	Set @Counter += 1;
+End
+
+Print @RandString
